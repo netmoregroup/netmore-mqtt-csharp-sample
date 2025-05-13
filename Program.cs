@@ -94,7 +94,7 @@ namespace mqtt_sample
             
             // Starts a connection with the Broker
             _mqttClient.StartAsync(options).GetAwaiter().GetResult();
-            _mqttClient.SubscribeAsync(String.Format("client/{0}/edge/+/netmore/dp/evt/#", cn));
+            _mqttClient.SubscribeAsync(String.Format("client/{0}/#", cn));
             _mqttClient.UseApplicationMessageReceivedHandler(e =>
                 {
                     var x = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
